@@ -1,0 +1,239 @@
+.login {
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    
+}
+
+.login__right {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.login__logo {
+   
+    flex: 0.5;
+    margin-bottom: 300px;
+}
+
+.login__logoTitle > img {
+    height: 185px;
+    margin-left: -30px;
+}
+
+.login__logoSubtitle {
+    
+    margin-top: -55px;
+}
+
+.login__logoSubtitle > h2 {
+    font-weight: 400;
+}
+
+
+
+.login__logo > h2 {
+    font-weight: 400;
+
+}
+
+.login__form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 1px 5px 6px 1px rgba(0,0,0,0.15);
+}
+
+.login__formForm {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.login__formForm > form {
+    display: flex;
+    flex-direction: column;
+}
+.login__formForm > form > input {
+    
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    outline-width: 0;
+}
+
+.login__formForm > form > button {
+    width: 100%;
+    background-color:#1977F3 ;
+    color: #eff2f5;
+    font-weight: 800;
+}
+
+.login__formForm > button {
+    margin-top: 15px;
+    background-color: #1977F3;
+    color: white
+}
+
+.button__signup {
+    background-color: #42B72A !important;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    outline-width: 0;
+}
+
+.button__signup:hover {
+background-color:#39a024  !important ;
+}
+
+.login__form > button {
+    width: 300px;
+    background-color:#1977F3 ;
+    color: #eff2f5;
+    font-weight: 800;
+}
+
+.login > button:hover {
+    background-color: white;
+    color: #1977F3;
+}
+
+.login > div > img {
+    object-fit: contain;
+    height: 150px;
+}
+
+.login > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.button__signup {
+    margin-top: 20px;
+    border-top: 1px solid lightgray;
+}
+
+.login__formFormSignup {
+    border-top: 1px solid lightgray;
+    margin-top: 25px;
+    padding-top: 10px;
+
+    display: flex;
+    justify-content: center;
+}
+.login__formFormSignup > button {
+    color:white
+
+}
+
+.login__message {
+    margin-top: 16px;
+    min-width: 300px;
+    max-width: 400px ;
+}
+.login__message > h4{
+    font-size: 14px;
+    font-weight: 400;
+}
+.login__message > h4 > span {
+    font-weight: 500;
+}
+
+/* --Sign up */
+
+.modal__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.modal__headerHead{
+    display: flex;
+    justify-content: space-between;
+}
+.modal__headerHead > .MuiSvgIcon-root {
+    cursor: pointer;
+}
+
+.modal__headerHead > h1 {
+    font-weight: 6000;
+    font-size: 28px;
+}
+
+.modal__header > p {
+    color: gray;
+    
+    font-size: 0.86em;
+}
+
+.modal__body {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.modal__bodyNames {
+    display: flex;
+    justify-content: center;
+    flex:1;
+}
+
+.modal__bodyNames > input {
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 5px;
+    width: 45%;
+    margin: 0 3px;
+    background-color:#F5F6F7 ;
+    outline-width: 0;
+}
+
+.modal__body > input {
+    
+    margin-top: 8px;
+    padding: 5px;
+    background-color:#F5F6F7 ;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    outline-width: 0;
+}
+
+.modal__bodyFooter {
+    margin: 15px 0;
+}
+.modal__bodyFooter > p {
+    font-size: xx-small;
+    color: gray
+}
+
+.modal__button {
+    display: flex;
+    justify-content: center;
+}
+
+.modal__button > button {
+    background-color: #42B72A !important;
+    padding: 5px 55px;
+    color: white;
+    border: none;
+    font-weight:700;
+    border-radius: 5px;
+    font-size: 16px;
+    outline-width: 0;
+    cursor: pointer;
+}

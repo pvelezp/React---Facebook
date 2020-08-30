@@ -1,0 +1,63 @@
+.chatContacts {
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 200px;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+
+.chatContactsOpen {
+    background-color: white;
+    border: 1px solid lightgray;
+    width: 200px;
+    height: 400px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 5px;
+    cursor: pointer; 
+}
+
+.chatContactsOpen__title {
+    margin-bottom: 10px;
+}
+.chatContactsOpen__title > h2 {
+    font-size: 17px;
+    margin: 4px
+}
+
+.contactsItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+.contactsItemLeft {
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+}
+
+.contactsItemLeft > p {
+    margin-left: 7px;
+}
+
+.contactsItemRight {
+    display: flex;
+    align-items: center;
+}
+
+.contactsItemRight >p {
+    color: rgb(39, 184, 39);
+    font-size: 25px;
+    margin-right: 10px;
+}
+.chatContactsClosed {
+    margin: 4px;
+    margin-left: 5px;
+}

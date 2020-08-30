@@ -1,0 +1,96 @@
+.ChatBox {
+    background-color: white;
+    border: 1px solid  rgb(196, 191, 191);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 284px;
+    height: 350px;
+    position: fixed;
+    bottom:0;
+    right: 215px;
+    margin-right: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+
+}
+
+h3{
+   font-size: 14px;
+
+ 
+}
+p {
+    margin-top: 2px;
+    font-size: 12.6px;
+    color: gray
+}
+.ChatBox__headerLeft__Avatar {
+    margin: 0px 3px;
+}
+.ChatBox__header {
+    display: flex;
+    border-bottom: 1px solid rgb(196, 191, 191);
+    justify-content: space-between;
+    align-items: center;
+    padding:4px;
+}
+.ChatBox__headerLeft {
+    display: flex;
+    position: relative;
+}
+
+.ChatBox__headerLeft > p {
+    color: rgb(15, 226, 15);
+    font-size: 30px;
+    position: absolute;
+    left: 31px;
+    bottom:-6px;
+}
+.ChatBox__headerLeftName {
+    padding: 5px;
+}
+.ChatBox__headerRight > .MuiSvgIcon-root {
+    color: lightgray;
+    margin: 0 1.5px;
+    height: 20px;
+}
+.ChatBox__body {
+    flex:1;
+    overflow-y: scroll;
+}
+
+.ChatBox__footer {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgb(196, 191, 191);
+    margin: 0 3px;
+}
+
+.ChatBox__footerInput{
+    display: flex;
+    margin-left: 4px;
+}
+
+.ChatBox__footerInput > input {
+    flex: 1;
+    border: none;
+    height: 30px;
+}
+
+.ChatBox__footerIcons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 3px;
+}
+.ChatBox__footerIconsLeft > .MuiSvgIcon-root {
+    color: rgb(177, 169, 169);
+    font-size: 20px;
+    margin: 0 3px;
+}
+
+.ChatBox__footerIconsRight > .MuiSvgIcon-root {
+    color: rgb(196, 191, 191);
+    font-size: 20px;
+}
