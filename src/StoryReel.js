@@ -1,14 +1,15 @@
 import React from 'react'
 import Story from './Story';
 import './StoryReel.css'
+import { AddIcon } from '@material-ui/icons/Add';
 
 const StoryReel = () => {
     return (
         <div className="storyReel">
             <Story 
             image="https://cdn5.vectorstock.com/i/1000x1000/49/09/mountains-landscape-in-beautiful-colors-vector-18884909.jpg"
-            profileSrc="https://scontent.flim9-1.fna.fbcdn.net/v/t1.0-1/p240x240/94701682_10157039435105233_1091959473246830592_n.jpg?_nc_cat=104&_nc_sid=dbb9e7&_nc_eui2=AeHhOLQSAlSVtHPt77Ad5uLTMZFj1qfpUNQxkWPWp-lQ1BWUfHzMANOC55EFhNLxRsU&_nc_ohc=RLA9OTmadfEAX9bDGVk&_nc_ht=scontent.flim9-1.fna&tp=6&oh=d7cec76a7707d85ba7e2009c14f5b309&oe=5F6CB41F"
-            title="Pedro"
+            profileSrc='https://b1.pngbarn.com/png/816/517/metrostation-plus-symbol-png-clip-art-thumbnail.png'
+            title="Add to story"
             />
                         <Story 
             image="https://notiboom.com/wp-content/uploads/2020/05/LA-FELICIDAD-1-1-640x427.jpeg"

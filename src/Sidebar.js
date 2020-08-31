@@ -9,6 +9,7 @@ import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useStateValue } from './StateProvider';
+import LikeOptions from './LikeOptions';
 
 
 const Sidebar = () => {
@@ -48,7 +49,7 @@ const Sidebar = () => {
   
             />
         
-            
+ 
         </div>
     )
 }

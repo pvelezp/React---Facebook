@@ -15,6 +15,24 @@
 
 }
 
+.minimized {
+    background-color: white;
+    border: 1px solid  rgb(196, 191, 191);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 284px;
+    height: 50px;
+    position: fixed;
+    bottom:0;
+    right: 215px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.minimized__none {
+    display: none;
+}
+
 h3{
    font-size: 14px;
 
@@ -93,4 +111,5 @@ padding: 3px;
 .ChatBox__footerIconsRight > .MuiSvgIcon-root {
     color: rgb(196, 191, 191);
     font-size: 20px;
+    
 }

@@ -6,15 +6,19 @@ import ChatBox from './ChatBox';
 const ChatContacts = () => {
 
     const [open, setOpen] = useState(false)
-
-    const openChatBox = e => {
-
-    }
     
+    const [closeBox, setCloseBox] = useState(true)
+    const handleClose = () => {
+        setCloseBox(true)
+    }
     return (
         <div className="contactsChat">
 
-            <ChatBox />
+            { !closeBox &&   <ChatBox 
+            
+            handleClose={handleClose}
+            />}
+           
             <div className="chatContacts">
             {
                 open? (
@@ -26,7 +30,7 @@ const ChatContacts = () => {
                         </div>
                         <div className="chatContactsOpen__items">
                         <div 
-                        onClick={openChatBox}
+                        onClick={() => setCloseBox(false)}
                         className="contactsItem">
                             <div className="contactsItemLeft">
                             <Avatar
@@ -40,7 +44,9 @@ const ChatContacts = () => {
                             </div>
 
                         </div>
-                        <div className="contactsItem">
+                        <div className="contactsItem"
+                        onClick={() => setCloseBox(false)}
+                        >
                         <div className="contactsItemLeft">
                             <Avatar
                             src='https://i.pinimg.com/originals/aa/b8/64/aab86495af70d4225086ae8ffcd39cd5.jpg'
@@ -52,7 +58,9 @@ const ChatContacts = () => {
                             <p>•</p>
                             </div>
                         </div>
-                        <div className="contactsItem">
+                        <div className="contactsItem"
+                        onClick={() => setCloseBox(false)}
+                        >
                         <div className="contactsItemLeft">
                             <Avatar
                             src='https://i.pinimg.com/originals/06/0a/31/060a31c4eb5e25a91e59acf91d67ddd4.jpg'
@@ -64,7 +72,9 @@ const ChatContacts = () => {
                             <p>•</p>
                             </div>
                         </div>
-                        <div className="contactsItem">
+                        <div className="contactsItem"
+                        onClick={() => setCloseBox(false)}
+                        >
                         <div className="contactsItemLeft">
                             <Avatar
                             src='https://i.pinimg.com/originals/03/c0/d0/03c0d08d0cb2487c61093d2ded37d85a.jpg'

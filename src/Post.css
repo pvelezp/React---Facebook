@@ -5,6 +5,21 @@
     border-radius: 15px;
     box-shadow: 5px 5px 25px -7px rgba(0,0,0,0.75)
 }
+.likeoptions {
+    transition-delay: 1s !important;
+    transition: opacity 0.2s 0 ease
+}
+.likeoptions:hover {
+    transition: opacity 0.2s 1s ease
+}
+
+.post__darkmode {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #252527;
+    border-radius: 15px;
+    box-shadow: 5px 5px 25px -7px rgba(0,0,0,0.75)
+}
 
 .post__image > img {
     width: 100%;
@@ -60,4 +75,107 @@
 .post__option:hover {
     background-color: #eff2f5;
     border-radius: 10px;
+}
+
+.toggleLike {
+    
+    color: #4080FF
+}
+
+.post__commentBox{
+
+    display: flex;
+    margin: 12px;
+}
+
+.post__input {
+    flex:1;
+    border: none;
+    background-color: rgb(236, 232, 232);
+    border-radius: 20px;
+    padding:10px;
+    margin: 0 10px;
+    outline-width: 0;
+}
+
+.post__button {
+    background-color: transparent;
+    border: none;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.post__comments {
+    padding: 10px;
+}
+
+.post__comment {
+    display: flex;
+    
+   
+   flex-direction: column;
+  
+   margin:5px;
+}
+
+.post__commentRight {
+    display: flex;
+    align-items: center;
+ 
+}
+
+.post__commentRight > p {
+    margin-left: 10px;
+}
+
+.post__commentTop> .MuiSvgIcon-root {
+    cursor: pointer;
+}
+.post__commentCenter {
+    flex:1;
+    background-color: #F2F3F5;
+    border-radius: 20px;
+    margin:5px;
+    padding:10px;
+    display: flex;
+    align-items: center;
+}
+
+.post__commentCenter > strong {
+    color: #385898;
+    font-size: 13.5px;
+    cursor: pointer;
+}
+
+.post__commentCenter > p {
+    color: black;
+    margin-left: 5px;
+}
+
+.post__commentBottom {
+    display: flex;
+    padding-left: 55px;
+    align-items: center;
+}
+
+.post__commentBottom > p {
+    color: blue;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.post__commentBottom > small {
+    font-weight: normal;
+    margin-right: 5px;
+
+}
+
+.post__commentBottom > h6 {
+    
+    margin-top: 2.5px;
+
+}
+.post__commentTop {
+    display: flex;
 }

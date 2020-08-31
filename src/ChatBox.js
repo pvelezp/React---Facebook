@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ChatBox.css'
 import { Avatar } from '@material-ui/core'
 import VideocamIcon from '@material-ui/icons/Videocam';
@@ -13,10 +13,19 @@ import GifIcon from '@material-ui/icons/Gif';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 
 
-const ChatBox = () => {
+const ChatBox = ({ handleClose}) => {
+
+    const [minimizedBox, setMinimizedBox] = useState(false)
+
+    console.log(minimizedBox)
+
     return (
-        <div className="ChatBox">
-        <div className="ChatBox__header">
+        
+        <div className={minimizedBox ? 'minimized': "ChatBox"}>
+            
+        <div className="ChatBox__header"
+        onClick={() => setMinimizedBox(prevState => !prevState)}
+        >
             <div className="ChatBox__headerLeft">
         <Avatar
         className="ChatBox__headerLeft__Avatar"
@@ -25,18 +34,24 @@ const ChatBox = () => {
         <p>•</p>
         <div className='ChatBox__headerLeftName'>
             <h3>John Lennon</h3>
-            <p>Activo(a) ahora</p>
+            <p
+            className={minimizedBox ? 'minimized__none': undefined}
+            >Activo(a) ahora</p>
         </div>
             </div>
-            <div className="ChatBox__headerRight">
+            <div 
+            className={minimizedBox ? 'minimized__none': "ChatBox__headerRight"}
+            >
               <VideocamIcon />
               <PhoneIcon />
               <SettingsIcon />
-              <ClearIcon />
+              <ClearIcon 
+              onClick={handleClose}
+              />
             </div>
             </div>
         <div className="ChatBox__body">
-           
+           <p></p>
         </div>
 
         <div className="ChatBox__footer">

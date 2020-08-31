@@ -1,0 +1,22 @@
+.likeOptions{
+    background-color: white;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:5px;
+    box-shadow: 4px 5px 3px 3px rgba(0,0,0,0.2);
+}
+
+.like {
+    color:blue;
+    cursor: pointer;
+}
+.love {
+    color:red;
+    cursor: pointer;
+}
+.satisfy {
+    color:rgb(230, 230, 8);
+    cursor: pointer;
+}

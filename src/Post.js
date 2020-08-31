@@ -1,15 +1,71 @@
-import React from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import './Post.css'
+import { actionTypes } from './reducer'
 import { Avatar } from '@material-ui/core'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import NearMeIcon from '@material-ui/icons/NearMe';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
+import { useStateValue } from './StateProvider';
+import db from './firebase';
+import firebase from 'firebase'
+import LikeOptions from './LikeOptions';
 
-const Post = ({profilePic, image, username,timestamp, message}) => {
+
+const Post = ({id,profilePic, image, username,timestamp, message}) => {
+    const [comment, setComment] = useState('')
+    const [ comments, setComments] = useState([])
+    const [{isDark,user, likesPost}, dispatch] =useStateValue()
+    const [toggleLike, setToggleLike] = useState(false)
+    const inputRef = useRef()
+    const [reaction, setReaction] = useState(false)
+    const [likeComment, setLikeComment] = useState(false)
+    useEffect(() => {
+        let unsubscribe;
+        if(id) {
+            unsubscribe =db
+            .collection('posts')
+            .doc(id)
+            .collection('comments')
+            .orderBy('timestamp','asc')
+            .onSnapshot((snapshot) => {
+                setComments(snapshot.docs.map((doc) => doc.data()))
+            })
+        }
+
+        return () => {
+            unsubscribe()
+        }
+    },[id])
+
+
+
+
+    const likePost = (id) => {
+        setToggleLike(prevState => !prevState)
+        dispatch({
+            type:actionTypes.ADD_LIKE,
+            payload: toggleLike,
+            id,
+            
+        })
+    }
+
+
+    const postComment = e => {
+       e.preventDefault()
+       
+       db.collection('posts').doc(id).collection('comments').add({
+           comment,
+           username: user.displayName,
+           timestamp: firebase.firestore.FieldValue.serverTimestamp()
+       })
+       setComment('')
+    }
     return (
-        <div className="post">
+        <div className={isDark ? 'post__darkmode': "post"}>
             <div className="post__top">
                 <Avatar
                 src={profilePic}
@@ -28,15 +84,25 @@ const Post = ({profilePic, image, username,timestamp, message}) => {
             <div className="post__image">
                 <img src={image} alt=""/>
             </div>
-
+        {reaction && <LikeOptions 
+        className="likeoptions"
+        />}
             <div className="post__options">
-                <div className="post__option">
-                    <ThumbUpIcon />
+                <div
+                onMouseOver={()=>setReaction(!reaction)}
+                className={toggleLike ? 'post__option toggleLike' : "post__option"}>
+                    <ThumbUpIcon
+                    
+                    />
                     <p>Like</p>
+    <p>{likesPost}</p>
                 </div>
-                <div className="post__option">
+                <div 
+                onClick={() =>inputRef.current.focus()}
+                className="post__option">
                     <ChatBubbleOutlineIcon />
                     <p>Comment</p>
+   
                 </div>
                 <div className="post__option">
                     <NearMeIcon />
@@ -47,6 +113,57 @@ const Post = ({profilePic, image, username,timestamp, message}) => {
                     <ExpandMoreOutlinedIcon />
                 </div>
             </div>
+
+            <div className="post__comments">
+                {comments.map(comment => (
+                    <p
+                    key={comment.timestamp}
+                    >
+                        <div className="post__comment">
+                    <div className="post__commentTop">
+                    <div className="post__commentRight">
+                            <Avatar />
+                            </div>
+                        <div className="post__commentCenter">
+                        <strong>{comment.username}</strong> 
+                     <p>{comment.comment}</p>  
+                        </div>
+                        
+                        <MoreHorizIcon />
+                        </div>
+                        <div className="post__commentBottom">
+                            <p
+                            style={{color: likeComment ? 'red' : undefined}}
+                            onClick={() => setLikeComment(!likeComment)}
+                            >Me gusta </p>
+                            <small>•</small>
+                            <p>Responder </p>
+                            <small>•</small>
+                            <h6>11 min</h6>
+                        </div>
+                    </div>
+                    </p>
+                ))}
+            </div>
+
+            <form className="post__commentBox">
+                <Avatar />
+                <input type="text"
+                className="post__input"
+                placeholder="Add a comment..."
+                value={comment}
+                ref={inputRef}
+                onChange={e => setComment(e.target.value)}
+                />
+                <button
+                className="post__button"
+                disabled={!comment}
+                type="submit"
+                onClick={postComment}
+                >
+                    Post
+                </button>
+            </form>
         </div>
     )
 }

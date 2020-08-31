@@ -9,9 +9,9 @@ import { useStateValue } from './StateProvider';
 import ChatContacts from './ChatContacts';
 
 function App() {
-  const [{user}, dispatch] = useStateValue()
+  const [{user, isDark}, dispatch] = useStateValue()
   return (
-    <div className="app">
+    <div className={isDark ? 'darkmode':"app"}>
       {!user ? <Login /> : (
         <>
               <Header />

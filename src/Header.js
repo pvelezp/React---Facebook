@@ -14,7 +14,7 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { actionTypes } from './reducer'
 import { withStyles } from '@material-ui/core/styles';
-
+import Switch from '@material-ui/core/Switch';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -22,6 +22,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 
 import {auth} from './firebase'
 
@@ -70,8 +71,8 @@ const Header = () => {
   };
 
 
-    const [{user}, dispatch] = useStateValue()
-
+    const [{user, isDark}, dispatch] = useStateValue()
+console.log(isDark)
     const LogOut = () => {
      auth.signOut()
      .then(result => {     
@@ -81,9 +82,13 @@ const Header = () => {
         }) })
         .catch(error => alert(error.message))}
         
-    
+    const toggleMode = () => {
+      dispatch({
+        type: actionTypes.TOGGLE_DARK_MODE
+      })
+    }
     return (
-        <div className="header">
+        <div className={isDark ? 'header dark__mode' : "header"}>
             <div className="header__left">
            
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt=""/>
@@ -114,6 +119,10 @@ const Header = () => {
             </div>
         <div className="header__right">
         <div className="header__info">
+          <Brightness3Icon />
+          <Switch
+          onClick={toggleMode}
+          />
             <Avatar 
             src={user.photoURL}
             

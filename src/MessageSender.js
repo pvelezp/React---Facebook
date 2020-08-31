@@ -16,10 +16,11 @@ import Videocam from '@material-ui/icons/Videocam';
 const MessageSender = () => {
     const [appear, setAppear] = useState(false)
     const [chosenEmoji, setChosenEmoji] = useState(null)
-    const [{user}, dispatch] = useStateValue()
+    const [{user, isDark}, dispatch] = useStateValue()
     const [input, setInput] = useState('')
     const [image, setImage] = useState('')
     const [videos, setVideos] = useState('')
+    const [openInput, setOpenInput] = useState(false)
 
     const onEmojiClick = (event, emojiObject) => {
         setChosenEmoji(emojiObject);
@@ -82,7 +83,7 @@ const MessageSender = () => {
     return (
 
         
-        <div className="messageSender">
+        <div className={isDark ? 'message__darkmode': "messageSender"}>
            <div className="messageSender__top">
             <Avatar
             src={user.photoURL}
@@ -90,12 +91,14 @@ const MessageSender = () => {
             <form  className="messageSender__topForm"
             onSubmit={handleUpload}
             >
+                <div className="messageSender__topFormClosed">
                 <input
                 className="messageSender__input"
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 type="text"
                 placeholder={`What's on your mind? ${user.displayName}`}
+                onClick={() => setOpenInput(!openInput)}
                 />
                 
                 <>
@@ -130,9 +133,30 @@ const MessageSender = () => {
             style={{display:'none'}}
             type="submit"
             >Add</button>
+                </div>
+{openInput && (
+                <div className="messageSender__openInput">
+                    <div className="messageSender__openInputFeed">
+                        <input type="checkbox"/>
+                        <h4>Feed</h4>
+                    </div>
+                    <div className="messageSender__openInputStory">
+                    <input type="checkbox"/>
+                        <h5>Story</h5>
+                    </div>
+                    <button
+                    type="submit"
+                    >Post</button>
+                </div>
+            )}
+
 
                 </form> 
             </div> 
+
+            
+
+
 
             <div>
             {chosenEmoji?.emoji}

@@ -7,6 +7,11 @@ import db from './firebase'
 const Feed = () => {
 
     const [ posts, setPosts] = useState([])
+    const [comments, setComments] = useState([])
+console.log(comments)
+  
+
+
 
     useEffect(() => {
         db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot => {
@@ -19,6 +24,7 @@ const Feed = () => {
             <MessageSender />
         {posts.map(post => (
             <Post 
+            id={post.id}
             key={post.id}
             profilePic={post.data.profilePic}
             timestamp={post.data.timestamp}

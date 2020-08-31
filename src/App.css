@@ -1,8 +1,16 @@
+
+.app {
+    background-color: #f1f2f5;
+    height: 100%;
+}
+
 .app__body {
     display: flex;
 }
 
-.app {
-    background-color: #f1f2f5;
+
+.darkmode {
+    background-color: #19191B;
+    color: white;
     height: 100%;
 }
