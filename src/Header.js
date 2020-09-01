@@ -9,12 +9,12 @@ import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import AddIcon from '@material-ui/icons/Add';
 import { useStateValue } from './StateProvider';
-import ForumIcon from '@material-ui/icons/Forum';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { actionTypes } from './reducer'
 import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
+import { ReactComponent as MessengerIcon} from './icons/messenger.svg'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -25,6 +25,8 @@ import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 
 import {auth} from './firebase'
+import DropdownMenu from './DropdownMenu';
+import { Link } from 'react-router-dom';
 
 const StyledMenu = withStyles({
     paper: {
@@ -60,16 +62,7 @@ const StyledMenu = withStyles({
 
 const Header = () => {
 
-    const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+    const [open, setOpen] = useState(false)
 
     const [{user, isDark}, dispatch] = useStateValue()
 console.log(isDark)
@@ -89,20 +82,25 @@ console.log(isDark)
     }
     return (
         <div className={isDark ? 'header dark__mode' : "header"}>
+          <Link to='/' className="header__left">
             <div className="header__left">
-           
+         
+         
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt=""/>
-
+        
         <div className="header__input">
             <SearchIcon />
             <input type="text"/>
         </div>
             </div>
+            </Link>
             <div className="header__middle">
         <div className="header__option
         header__option--active
         ">
+          <Link to='/' >
             <HomeIcon fontSize="large" />
+            </Link>
         </div>
         <div className="header__option">
             <FlagIcon fontSize="large" />
@@ -119,61 +117,35 @@ console.log(isDark)
             </div>
         <div className="header__right">
         <div className="header__info">
-          <Brightness3Icon />
-          <Switch
-          onClick={toggleMode}
-          />
-            <Avatar 
-            src={user.photoURL}
-            
-            />
-            <h4> {user.displayName} </h4>
+          <Link to='/profile'>
+          <div className="header__infoProfile">
+          <Avatar />
+                
+ 
+                <h3>{user.displayName}</h3>
+          </div>
+          </Link>
+
             <IconButton>
                 <AddIcon />
             </IconButton>
             <IconButton>
-                <ForumIcon />
+                <MessengerIcon />
             </IconButton>
             <IconButton
              onClick={LogOut}
             >
                 <NotificationsActiveIcon />
             </IconButton>
-            <IconButton onClick={handleClick}>
+            <IconButton 
+            onClick={() => setOpen(!open)}
+            >
                 <ExpandMoreIcon
                       
                 />
-                    <StyledMenu
-        id="customized-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <StyledMenuItem>
-          <ListItemIcon>
-            <SendIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail" />
-        </StyledMenuItem>
 
-        <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem>
-
-        <StyledMenuItem
-       
-        >
-          <ListItemIcon>
-            <InboxIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Log out" />
-        </StyledMenuItem>
-
-      </StyledMenu>
+            {open && <DropdownMenu />}
+  
             </IconButton>
 
 

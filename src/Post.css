@@ -178,4 +178,5 @@
 }
 .post__commentTop {
     display: flex;
+    position: relative;
 }

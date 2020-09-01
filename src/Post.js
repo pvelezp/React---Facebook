@@ -12,6 +12,7 @@ import { useStateValue } from './StateProvider';
 import db from './firebase';
 import firebase from 'firebase'
 import LikeOptions from './LikeOptions';
+import DropdownPost from './DropdownPost';
 
 
 const Post = ({id,profilePic, image, username,timestamp, message}) => {
@@ -20,6 +21,8 @@ const Post = ({id,profilePic, image, username,timestamp, message}) => {
     const [{isDark,user, likesPost}, dispatch] =useStateValue()
     const [toggleLike, setToggleLike] = useState(false)
     const inputRef = useRef()
+    const [editOrDelete, setEditOrDelete] = useState(false)
+    
     const [reaction, setReaction] = useState(false)
     const [likeComment, setLikeComment] = useState(false)
     useEffect(() => {
@@ -129,8 +132,13 @@ const Post = ({id,profilePic, image, username,timestamp, message}) => {
                      <p>{comment.comment}</p>  
                         </div>
                         
-                        <MoreHorizIcon />
+                        <MoreHorizIcon 
+                        
+                        onClick={() => setEditOrDelete(!editOrDelete)}
+                        />
+                        {editOrDelete && <DropdownPost />}
                         </div>
+                        
                         <div className="post__commentBottom">
                             <p
                             style={{color: likeComment ? 'red' : undefined}}

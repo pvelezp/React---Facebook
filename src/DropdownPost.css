@@ -1,0 +1,35 @@
+.dropdownpost {
+    position: absolute;
+   padding: 5px;
+    top:14px;
+    width: 80px;
+    right:23px;
+    background-color: white;
+    border: 1px solid lightgray;
+    z-index: 10;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 1px 2px 4px 1px rgba(0,0,0,0.20);
+}
+
+.dropdownpost__edit {
+    display: flex;
+    cursor: pointer;
+}
+.dropdownpost__edit:hover {
+    background-color: blue;
+
+}
+.dropdownpost__edit > p:hover{
+    color: white;
+}
+
+.dropdownpost__delete {
+    display: flex;
+    cursor: pointer;
+}
+
+.dropdownpost__delete:hover {
+    background-color: blue;
+    color: white;
+}

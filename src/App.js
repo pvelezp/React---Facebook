@@ -8,6 +8,9 @@ import Login from './Login';
 import { useStateValue } from './StateProvider';
 import ChatContacts from './ChatContacts';
 
+import {Switch, Route } from 'react-router-dom';
+import ProfilePage from './ProfilePage';
+
 function App() {
   const [{user, isDark}, dispatch] = useStateValue()
   return (
@@ -16,9 +19,14 @@ function App() {
         <>
               <Header />
               <div className="app__body">
-                <Sidebar />
+        <Switch>
+          <Route exact path='/'>
+          <Sidebar />
                 <Feed />
                 <Widgets />
+          </Route>
+          <Route path='/profile' component={ProfilePage}  />
+        </Switch>
                
               </div>
               <ChatContacts /> 

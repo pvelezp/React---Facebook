@@ -91,3 +91,12 @@
 .header__right {
     display: flex;
 }
+
+.header__infoProfile {
+    display: flex;
+    align-items: center;
+}
+
+.header__infoProfile > h3 {
+    margin-left: 7px;
+}
