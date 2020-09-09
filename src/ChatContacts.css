@@ -1,16 +1,7 @@
+
 .chatContacts {
-    background-color: white;
-    border: 1px solid lightgray;
-    width: 200px;
-    height: 30px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin-right: 5px;
-    cursor: pointer;
+    transition-timing-function: 0.5s;
 }
-
-
 
 .chatContactsOpen {
     background-color: white;

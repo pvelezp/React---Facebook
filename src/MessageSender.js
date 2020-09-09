@@ -8,23 +8,21 @@ import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
 import { useStateValue } from './StateProvider';
 import db,{storage} from './firebase';
 import firebase from 'firebase'
-import Picker from 'emoji-picker-react';
+
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import Videocam from '@material-ui/icons/Videocam';
 
 const MessageSender = () => {
     const [appear, setAppear] = useState(false)
-    const [chosenEmoji, setChosenEmoji] = useState(null)
+
     const [{user, isDark}, dispatch] = useStateValue()
     const [input, setInput] = useState('')
     const [image, setImage] = useState('')
     const [videos, setVideos] = useState('')
     const [openInput, setOpenInput] = useState(false)
 
-    const onEmojiClick = (event, emojiObject) => {
-        setChosenEmoji(emojiObject);
-      };
+  
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -159,7 +157,7 @@ const MessageSender = () => {
 
 
             <div>
-            {chosenEmoji?.emoji}
+   
             </div>
             <div className="messageSender__bottom">
             <div className="messageSender__option">
@@ -209,8 +207,7 @@ const MessageSender = () => {
 <div
 style={{display:'flex', justifyContent:'flex-end'}}
 >
-{appear && <Picker 
-                        onEmojiClick={onEmojiClick} /> }
+
 </div>
       
         </div>

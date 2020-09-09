@@ -26,9 +26,9 @@ const Post = ({id,profilePic, image, username,timestamp, message}) => {
     const [reaction, setReaction] = useState(false)
     const [likeComment, setLikeComment] = useState(false)
     useEffect(() => {
-        let unsubscribe;
+        
         if(id) {
-            unsubscribe =db
+            db
             .collection('posts')
             .doc(id)
             .collection('comments')
@@ -38,10 +38,8 @@ const Post = ({id,profilePic, image, username,timestamp, message}) => {
             })
         }
 
-        return () => {
-            unsubscribe()
-        }
-    },[id])
+       
+    },[comments])
 
 
 
@@ -119,7 +117,7 @@ const Post = ({id,profilePic, image, username,timestamp, message}) => {
 
             <div className="post__comments">
                 {comments.map(comment => (
-                    <p
+                    <div
                     key={comment.timestamp}
                     >
                         <div className="post__comment">
@@ -150,7 +148,7 @@ const Post = ({id,profilePic, image, username,timestamp, message}) => {
                             <h6>11 min</h6>
                         </div>
                     </div>
-                    </p>
+                    </div>
                 ))}
             </div>
 

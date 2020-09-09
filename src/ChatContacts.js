@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './ChatContacts.css'
 import { Avatar } from '@material-ui/core'
 import ChatBox from './ChatBox';
+import MessengerIcon from './MessengerIcon';
 
 const ChatContacts = () => {
 
@@ -90,11 +91,15 @@ const ChatContacts = () => {
                         </div>
                     </div>
                 ): (
-                    <div 
+                    <div
                     onClick={e => setOpen(prevState => !prevState)}
-                    className="chatContactsClosed">
-                        <h4>    Chat</h4>
+                    >
+                    <MessengerIcon 
+                    
+                    />
                     </div>
+
+                 
                 )
             }
         </div>

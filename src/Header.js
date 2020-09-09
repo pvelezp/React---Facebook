@@ -17,12 +17,7 @@ import Switch from '@material-ui/core/Switch';
 import { ReactComponent as MessengerIcon} from './icons/messenger.svg'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import Brightness3Icon from '@material-ui/icons/Brightness3';
+
 
 import {auth} from './firebase'
 import DropdownMenu from './DropdownMenu';
@@ -65,6 +60,8 @@ const Header = () => {
     const [open, setOpen] = useState(false)
 
     const [{user, isDark}, dispatch] = useStateValue()
+
+    
 console.log(isDark)
     const LogOut = () => {
      auth.signOut()

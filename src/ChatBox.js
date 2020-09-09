@@ -17,11 +17,10 @@ const ChatBox = ({ handleClose}) => {
 
     const [minimizedBox, setMinimizedBox] = useState(false)
 
-    console.log(minimizedBox)
 
     return (
         
-        <div className={minimizedBox ? 'minimized': "ChatBox"}>
+        <div className={!minimizedBox && "ChatBox"}>
             
         <div className="ChatBox__header"
         onClick={() => setMinimizedBox(prevState => !prevState)}

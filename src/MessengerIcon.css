@@ -1,0 +1,10 @@
+.messenger__chat {
+    position: fixed;
+    padding: 10px;
+    bottom:3%;
+    right: 3%;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.3);
+}
